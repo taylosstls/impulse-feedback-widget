@@ -1,25 +1,12 @@
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { ChatTeardropDots } from '@phosphor-icons/react'
-import { useState } from 'react'
 
 export function Widget() {
-  const [isWidgetOpen, setIsWidgetOpen] = useState(false)
-
-  function toogleWidgetVisibility() {
-    setIsWidgetOpen(!isWidgetOpen)
-  }
-
   return (
-    <div className="absolute bottom-5 right-5">
-      {isWidgetOpen && (
-        <>
-          <p>Oi</p>
-        </>
-      )}
-
-      <button
+    <Popover className="absolute bottom-5 right-5">
+      <PopoverButton
         aria-label="Widget de Feedback"
         className="bg-brand-500 rounded-full px-3 h-12 text-white flex items-center group"
-        onClick={toogleWidgetVisibility}
       >
         <ChatTeardropDots className="w-6 h-6" />
 
@@ -27,7 +14,9 @@ export function Widget() {
           <span className="pl-2"></span>
           Feedback
         </span>
-      </button>
-    </div>
+      </PopoverButton>
+
+      <PopoverPanel anchor="bottom">Hello World</PopoverPanel>
+    </Popover>
   )
 }
