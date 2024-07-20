@@ -1,4 +1,5 @@
 import { PopoverButton } from '@headlessui/react'
+
 import { Icon } from '../../atoms/Icon'
 
 export function CloseWidget() {
@@ -7,7 +8,7 @@ export function CloseWidget() {
       className="top-5 right-5 absolute text-zinc-400 hover:text-zinc-100"
       title="Fechar formulário de feedback"
     >
-      <Icon typeIcon="close" weight="bold" className="w-4 h-4" />
+      <Icon typeIcon="close" weight="bold" />
     </PopoverButton>
   )
 }

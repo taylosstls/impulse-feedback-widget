@@ -1,5 +1,3 @@
-// src/components/atoms/FeedbackTypeButton.tsx
-
 import { ComponentProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
