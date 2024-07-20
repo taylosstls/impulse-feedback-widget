@@ -5,10 +5,12 @@ import { FeedbackType, feedbackTypes } from '../../data/feedbackTypes'
 
 import { Header } from '../../molecules/Header'
 import { ScreenshotButton } from '../../molecules/ScreenshotButton'
+import { Loading } from '../../atoms/Loading'
 
 type WidgetSelectedType = {
   feedbackType: FeedbackType
   restartFeedback: () => void
+  onFeedbackSent: (submit: boolean) => void
 }
 
 type Inputs = {
@@ -19,6 +21,7 @@ type Inputs = {
 export function WidgetForm({
   feedbackType,
   restartFeedback,
+  onFeedbackSent,
 }: WidgetSelectedType) {
   const [screenshot, setScreenshot] = useState<string | null>(null)
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
@@ -36,7 +39,13 @@ export function WidgetForm({
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
       data.screenshot = screenshot
+
+      // Simula um envio para o servidor
+      await new Promise((resolve) => setTimeout(resolve, 3000))
+
       console.log(data)
+
+      onFeedbackSent(true)
     } catch (error) {
       console.error(error)
     }
@@ -84,7 +93,16 @@ export function WidgetForm({
             disabled={isSubmitting || isButtonDisabled}
             className={`p-2 h-10 bg-brand-500 rounded-md border-transparent flex-1 flex justify-center items-center text-sm transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 font-semibold ${isSubmitting || isButtonDisabled ? 'opacity-50 hover:bg-brand-500 cursor-not-allowed' : 'hover:bg-brand-300'}`}
           >
-            {isSubmitting ? 'Enviando...' : 'Enviar feedback'}
+            {isSubmitting ? (
+              <>
+                <Loading />{' '}
+                <span className="h-6 flex items-center leading-6">
+                  Enviando
+                </span>
+              </>
+            ) : (
+              'Enviar feedback'
+            )}
           </button>
         </footer>
       </form>

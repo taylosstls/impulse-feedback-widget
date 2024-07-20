@@ -2,7 +2,7 @@ import { BackWidget } from '../../atoms/BackWidget'
 import { CloseWidget } from '../../atoms/CloseWidget'
 
 interface HeaderProps {
-  title: string
+  title?: string
   image?: {
     source: string
     alt: string
