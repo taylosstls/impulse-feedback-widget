@@ -1,6 +1,6 @@
 import { feedbackTypes, FeedbackType } from '../../data/feedbackTypes'
 
-import { FeedbackTypeButton } from '../../molecules/FeedbackTypeButton'
+import { FeedbackTypeButton } from '../../atoms/FeedbackTypeButton'
 
 import { Header } from '../../molecules/Header'
 

@@ -1,5 +1,5 @@
-import { BackWidget } from '../BackWidget'
-import { CloseWidget } from '../CloseWidget'
+import { BackWidget } from '../../atoms/BackWidget'
+import { CloseWidget } from '../../atoms/CloseWidget'
 
 interface HeaderProps {
   title: string
