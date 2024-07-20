@@ -20,7 +20,7 @@ export function FeedbackTypeButton({
   return (
     <button
       className={twMerge(
-        'bg-zinc-800 rounded-lg py-5 w-24 flex-1 flex flex-col justify-center items-center border-2 border-transparent transition-all duration-500 outline-none hover:border-brand-500 focus:border-brand-500',
+        'bg-zinc-800 hover:bg-zinc-700/65 rounded-lg py-5 w-24 flex-1 flex flex-col justify-center items-center border-2 border-transparent transition-all duration-500 outline-none hover:border-brand-500 focus:border-brand-500',
         className,
       )}
       title={`Formulário ${feedback.title.toLocaleLowerCase()}`}

@@ -10,7 +10,7 @@ export function BackWidget({ ...props }: BackWidgetProps) {
       className="top-5 left-5 absolute text-zinc-400 transition-all duration-300 hover:text-zinc-100"
       {...props}
     >
-      <Icon typeIcon="back" />
+      <Icon typeIcon="back" sizeIcon="sm" />
     </button>
   )
 }
