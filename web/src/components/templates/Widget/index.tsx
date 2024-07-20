@@ -1,7 +1,7 @@
 import { Popover, PopoverPanel } from '@headlessui/react'
 
 import { OpenWidget } from '../../molecules/OpenWidget'
-import { WidgetContent } from '../../organisms/WidgetContent'
+import { WidgetContent } from '../WidgetContent'
 
 export function Widget() {
   return (
