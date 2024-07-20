@@ -1,7 +1,8 @@
-import { Icon } from '../../atoms/Icon'
+import { useState } from 'react'
 import { FeedbackType, feedbackTypes } from '../../data/feedbackTypes'
 
 import { Header } from '../../molecules/Header'
+import { ScreenshotButton } from '../../molecules/ScreenshotButton'
 
 type WidgetSelectedType = {
   feedbackType: FeedbackType
@@ -13,6 +14,7 @@ export function WidgetForm({
   restartFeedback,
 }: WidgetSelectedType) {
   const feedbackTypeInfo = feedbackTypes[feedbackType]
+  const [screenshot, setScreenshot] = useState<string | null>(null)
 
   return (
     <>
@@ -29,16 +31,14 @@ export function WidgetForm({
         />
 
         <footer className="flex gap-2 mt-2">
-          <button
-            type="button"
-            className="p-2 bg-zinc-800 hover:bg-zinc-700/65 rounded-md border-transparent flex justify-center items-center text-sm transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-zinc-700/65"
-          >
-            <Icon typeIcon="upload" sizeIcon="md" />
-          </button>
+          <ScreenshotButton
+            onScreenshot={setScreenshot}
+            screenshot={screenshot}
+          />
 
           <button
             type="submit"
-            className="p-2 bg-brand-500 hover:bg-brand-300 rounded-md border-transparent flex-1 flex justify-center items-center text-sm transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500"
+            className="p-2 h-10 bg-brand-500 hover:bg-brand-300 rounded-md border-transparent flex-1 flex justify-center items-center text-sm transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 font-semibold"
           >
             Enviar feedback
           </button>
